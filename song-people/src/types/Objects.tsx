@@ -1,3 +1,3 @@
-export interface newObjectType {
-  option: string;
+export interface musicElemType {
+  genre: string;
 }

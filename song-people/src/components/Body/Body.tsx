@@ -1,6 +1,12 @@
 import React from 'react';
+import { musicElemType } from '../../types/Objects';
+import { musicArray } from '../../constants/musicArray';
 // import { goodElemType } from '../../type/Objects';
 import './Body.scss';
+
+// interface BodyProps {
+//   musicArray: musicElemType[];
+// }
 
 const Body: React.FC = () => {
   return (
@@ -8,12 +14,9 @@ const Body: React.FC = () => {
       <div className="wrapper">
         <nav>
           <ul>
-            <li>Pop</li>
-            <li>Rock</li>
-            <li>Metal</li>
-            <li>Rap</li>
-            <li>Electro</li>
-            <li>Classic</li>
+            {musicArray.map((song: musicElemType) => (
+              <li>{song.genre}</li>
+            ))}
           </ul>
         </nav>
         <div className="player"></div>
