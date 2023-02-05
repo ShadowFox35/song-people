@@ -19,18 +19,14 @@
   }
 }
 
+.rights {
+  display: flex;
+  gap: 10px;
+}
+
 .github {
   display: flex;
   align-items: center;
-
-  p {
-    text-decoration: none;
-    line-height: 50px;
-    margin-right: 20px;
-    &:nth-child(3) {
-      margin-right: 0;
-    }
-  }
   &_link {
     color: aliceblue;
     text-decoration: none;
@@ -44,17 +40,18 @@
   }
 }
 
-.rss {
-  margin-left: 19px;
-  &_logo {
-    filter: invert(95%) sepia(11%) saturate(261%)
-      hue-rotate(243deg) brightness(117%) contrast(100%);
-    width: 100px;
-    height: 50px;
+.linkedIn {
+  display: flex;
+  align-items: center;
+  &_link {
+    color: aliceblue;
+    text-decoration: none;
+    line-height: 50px;
+    transition: 0.5s;
     &:hover {
       cursor: pointer;
-      filter: invert(37%) sepia(17%) saturate(2062%)
-        hue-rotate(251deg) brightness(83%) contrast(83%);
+      text-decoration: underline;
+      transition: 0.2s;
     }
   }
 }
