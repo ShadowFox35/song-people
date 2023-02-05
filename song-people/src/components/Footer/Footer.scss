@@ -1,0 +1,57 @@
+.footer {
+  // padding: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.818);
+  color: aliceblue;
+  margin-bottom: 0;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    width: 1280px;
+    margin: auto;
+    height: 100%;
+    @media only screen and (max-width: 1280px) {
+      width: 100%;
+    }
+  }
+}
+
+.rights {
+  display: flex;
+  gap: 10px;
+}
+
+.github {
+  display: flex;
+  align-items: center;
+  &_link {
+    color: aliceblue;
+    text-decoration: none;
+    line-height: 50px;
+    transition: 0.5s;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      transition: 0.2s;
+    }
+  }
+}
+
+.linkedIn {
+  display: flex;
+  align-items: center;
+  &_link {
+    color: aliceblue;
+    text-decoration: none;
+    line-height: 50px;
+    transition: 0.5s;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      transition: 0.2s;
+    }
+  }
+}
