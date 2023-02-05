@@ -1,6 +1,7 @@
+import { navElemType } from '../types/Objects';
 import { musicElemType } from '../types/Objects';
 
-export const musicArray: musicElemType[] = [
+export const musicArray: navElemType[] = [
   {
     genre: 'Pop',
   },
@@ -23,5 +24,11 @@ export const musicArray: musicElemType[] = [
 
   {
     genre: 'Classic',
+  },
+];
+
+export const popArray: musicElemType[] = [
+  {
+    img: 'assets/song_images/Zefirka.svg',
   },
 ];
