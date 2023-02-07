@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { navElemType } from '../../types/Objects';
 import { musicArray } from '../../constants/musicArray';
 // import { goodElemType } from '../../type/Objects';
 import './Body.scss';
-
-// interface BodyProps {
-//   musicArray: navElemType[];
-// }
+import './player.scss';
+import AudioPlayer from 'react-h5-audio-player';
 
 const Body: React.FC = () => {
   return (
@@ -27,7 +25,12 @@ const Body: React.FC = () => {
               alt=""
             />
             <div className="player_wrapper">
-              здесь будет кастомный плеер
+              <AudioPlayer
+                src={`${process.env.PUBLIC_URL}/assets/music/BillieEilish.mp3`}
+                customAdditionalControls={[]}
+                showJumpControls={false}
+                autoPlayAfterSrcChange={false}
+              />
             </div>
           </div>
           <div className="options">
