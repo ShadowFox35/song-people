@@ -21,6 +21,10 @@ const Body: React.FC = () => {
   const [song, setSong] = useState<musicElemType>(
     allSongsArray[0][0]
   );
+
+  // const [classNameBtn, setClassNameBtn] =
+  //   useState<string>('');
+
   // const [popArray, rockArray] = allSongsArray;
 
   const startGame = () => {
@@ -31,8 +35,6 @@ const Body: React.FC = () => {
     console.log('chooseLevel');
   };
 
-  // const gameArray: musicElemType[] = [];
-
   const appointRandomSong = () => {
     console.log(
       'allSongsArray[levelNum]',
@@ -42,7 +44,6 @@ const Body: React.FC = () => {
       Math.random() * allSongsArray[levelNum].length
     );
     setSong(allSongsArray[levelNum][randomSong]);
-    // console.log('allSongsArray[levelNum]', allSongsArray[levelNum]);
   };
 
   useEffect(() => {
@@ -50,16 +51,13 @@ const Body: React.FC = () => {
   }, allSongsArray[levelNum]);
 
   const checkAnswer = (answer: musicElemType) => {
-    console.log('checkAnswer', answer);
-    let answersArray: musicElemType[] = [];
-
     if (answer.artist === song.artist) {
       answerRight();
     } else {
       answerWrong();
-      answersArray.push(answer);
-      console.log('answersArray', answersArray);
-      setSelectedSongList(answersArray);
+      let list = [...selectedSongList];
+      list.push(answer);
+      setSelectedSongList(list); //добавление выбранного неправильного ответа в массив
     }
   };
 
@@ -106,12 +104,12 @@ const Body: React.FC = () => {
               <div className="artists">
                 <ul className="artists_list">
                   {allSongsArray[levelNum].map(
-                    (
-                      song: musicElemType,
-                      index: number
-                    ) => (
+                    (song: musicElemType) => (
                       <li
-                        className="artists_list_item"
+                        className={`artists_list_item ${
+                          selectedSongList.includes(song) &&
+                          'clicked'
+                        }`}
                         // disabled = {selectedSongList.includes(song)}
 
                         onClick={() => {
