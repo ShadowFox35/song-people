@@ -13,13 +13,7 @@ function App() {
     <>
       <div className="container">
         <Header />
-        <Body
-        // setOpenModal={setOpenModal}
-        />
-        {/* <ModalWindow
-        // setOpenModal={setOpenModal}
-        // openModal={openModal}
-      /> */}
+        <Body />
       </div>
       <Footer />
     </>
