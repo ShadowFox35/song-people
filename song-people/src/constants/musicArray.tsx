@@ -74,7 +74,7 @@ export const allSongsArray: musicElemType[][] = [
       img: '/Haddway.jpg',
       audio: 'rock/Haddway.mp3',
       genre: 'Rock',
-      info: 'Nestor Alexander Haddaway (born 9 January 1965) is a Trinidadian-born German singer best known for his 1993 hit single "What Is Love", which reached number 1 in 13 countries. In 1992, Haddaway was signed by German label Coconut Records. His debut single, "What Is Love", rapidly became popular in Europe, reaching number 2 in Germany and the United Kingdom.',
+      info: '2Nestor Alexander Haddaway (born 9 January 1965) is a Trinidadian-born German singer best known for his 1993 hit single "What Is Love", which reached number 1 in 13 countries. In 1992, Haddaway was signed by German label Coconut Records. His debut single, "What Is Love", rapidly became popular in Europe, reaching number 2 in Germany and the United Kingdom.',
     },
 
     {
@@ -82,7 +82,7 @@ export const allSongsArray: musicElemType[][] = [
       img: '/LadyGaga.jpg',
       audio: 'rock/LadyGaga.mp3',
       genre: 'Rock',
-      info: 'Stefani Joanne Angelina Germanotta (born March 28, 1986), known as Lady Gaga, is an American singer, songwriter and actress. She is known for her image reinventions and musical versatility. Gaga was named the "Queen of Pop" in a 2011 ranking by Rolling Stone based on record sales and social media metrics. Gaga has won thirteen Grammy Awards, an Academy Award and two Golden Globe Awards.',
+      info: '2Stefani Joanne Angelina Germanotta (born March 28, 1986), known as Lady Gaga, is an American singer, songwriter and actress. She is known for her image reinventions and musical versatility. Gaga was named the "Queen of Pop" in a 2011 ranking by Rolling Stone based on record sales and social media metrics. Gaga has won thirteen Grammy Awards, an Academy Award and two Golden Globe Awards.',
     },
 
     {
@@ -90,7 +90,7 @@ export const allSongsArray: musicElemType[][] = [
       img: '/OneRepublic.jpg',
       audio: 'rock/OneRepublic.mp3',
       genre: 'Rock',
-      info: 'OneRepublic is an American pop rock band formed in Colorado Springs, Colorado,[5] in 2002. OneRepublic have won several music awards and landed many nominations, including ones for American Music Awards, Billboard Music Awards, World Music Awards, and Grammy Awards. Separately, lead singer Ryan Tedder has won three Grammy Awards due to his songwriting credits for Adele and Taylor Swift.',
+      info: '2OneRepublic is an American pop rock band formed in Colorado Springs, Colorado,[5] in 2002. OneRepublic have won several music awards and landed many nominations, including ones for American Music Awards, Billboard Music Awards, World Music Awards, and Grammy Awards. Separately, lead singer Ryan Tedder has won three Grammy Awards due to his songwriting credits for Adele and Taylor Swift.',
     },
   ],
 ];
