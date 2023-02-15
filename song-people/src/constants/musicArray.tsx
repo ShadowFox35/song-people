@@ -70,27 +70,27 @@ export const allSongsArray: musicElemType[][] = [
     },
 
     {
-      artist: 'Haddway',
-      img: '/Haddway.jpg',
-      audio: 'rock/Haddway.mp3',
+      artist: 'My Chemical Romance',
+      img: '/MyChemicalRomance.jpg',
+      audio: 'rock/MyChemicalRomance.mp3',
       genre: 'Rock',
-      info: '2Nestor Alexander Haddaway (born 9 January 1965) is a Trinidadian-born German singer best known for his 1993 hit single "What Is Love", which reached number 1 in 13 countries. In 1992, Haddaway was signed by German label Coconut Records. His debut single, "What Is Love", rapidly became popular in Europe, reaching number 2 in Germany and the United Kingdom.',
+      info: 'My Chemical Romance  is an American rock band from Newark, New Jersey. The bands current lineup consists of lead vocalist Gerard Way, lead guitarist Ray Toro, rhythm guitarist Frank Iero, and bassist Mikey Way. In 2020, Kerrang! deemed the band "the rock superstars of the 21st century" while stating that "no other band has had such a musical or cultural impact over recent years.',
     },
 
     {
-      artist: 'Lady Gaga',
-      img: '/LadyGaga.jpg',
-      audio: 'rock/LadyGaga.mp3',
+      artist: 'The Pretty Reckless',
+      img: '/ThePrettyReckless.jpg',
+      audio: 'rock/ThePrettyReckless.mp3',
       genre: 'Rock',
-      info: '2Stefani Joanne Angelina Germanotta (born March 28, 1986), known as Lady Gaga, is an American singer, songwriter and actress. She is known for her image reinventions and musical versatility. Gaga was named the "Queen of Pop" in a 2011 ranking by Rolling Stone based on record sales and social media metrics. Gaga has won thirteen Grammy Awards, an Academy Award and two Golden Globe Awards.',
+      info: 'The Pretty Reckless is an American rock band from New York City, formed in 2009. The band consists of Taylor Momsen (lead vocals, rhythm guitar), Ben Phillips (lead guitar, backing vocals), Mark Damon (bass), and Jamie Perkins (drums). The band released their debut studio album, Light Me Up, in August 2010. The album spawned three moderately successful singles, most notably "Make Me Wanna Die"',
     },
 
     {
-      artist: 'One Republic',
-      img: '/OneRepublic.jpg',
-      audio: 'rock/OneRepublic.mp3',
+      artist: '30 Seconds to Mars',
+      img: '/30SecondsToMars.jpg',
+      audio: 'rock/30SecondsToMars.mp3',
       genre: 'Rock',
-      info: '2OneRepublic is an American pop rock band formed in Colorado Springs, Colorado,[5] in 2002. OneRepublic have won several music awards and landed many nominations, including ones for American Music Awards, Billboard Music Awards, World Music Awards, and Grammy Awards. Separately, lead singer Ryan Tedder has won three Grammy Awards due to his songwriting credits for Adele and Taylor Swift.',
+      info: '30 Seconds to Mars is an American rock band from Los Angeles, California, formed in 1998. The band consists of brothers Jared Leto (lead vocals, guitar, bass, keyboards) and Shannon Leto (drums, percussion). The band achieved worldwide fame with the release of its second album A Beautiful Lie (2005), which received multiple certifications all over the world.',
     },
   ],
 ];
