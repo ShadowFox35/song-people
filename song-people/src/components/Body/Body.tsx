@@ -3,6 +3,7 @@ import { musicElemType } from '../../types/Objects';
 import {
   genresArray,
   allSongsArray,
+  startMessage,
 } from '../../constants/musicArray';
 // import { goodElemType } from '../../type/Objects';
 import './Body.scss';
@@ -12,13 +13,15 @@ import AudioPlayer from 'react-h5-audio-player';
 const Body: React.FC = () => {
   const [levelNum, setLevelNum] = useState<number>(0);
   const [disableStart, setDisableStart] =
-    useState<boolean>(false);
+    useState<boolean>(true);
   const [selectedSongList, setSelectedSongList] = useState<
     musicElemType[]
   >([]);
   const [song, setSong] = useState<musicElemType>(
     allSongsArray[0][0]
   );
+  const [clickedSong, setClickedSong] =
+    useState<musicElemType>(startMessage[0]);
 
   const startGame = () => {
     chooseLevel();
@@ -45,6 +48,8 @@ const Body: React.FC = () => {
   }, [levelNum]);
 
   const checkAnswer = (answer: musicElemType) => {
+    setClickedSong(answer);
+
     if (answer.artist === song.artist) {
       answerRight();
     } else {
@@ -96,20 +101,27 @@ const Body: React.FC = () => {
               <div className="artists">
                 <ul className="artists_list">
                   {allSongsArray[levelNum].map(
-                    (song: musicElemType) => (
+                    (songInList: musicElemType) => (
                       <li
                         className={`artists_list_item ${
-                          selectedSongList.includes(song) &&
-                          'clicked'
+                          selectedSongList.includes(
+                            songInList
+                          ) && 'clicked'
                         }`}
                         onClick={() => {
                           if (
-                            !selectedSongList.includes(song)
+                            !selectedSongList.includes(
+                              songInList
+                            )
                           ) {
-                            checkAnswer(song);
+                            checkAnswer(songInList);
+                            console.log(
+                              'clicked song obj',
+                              songInList
+                            );
                           }
                         }}>
-                        {song.artist}
+                        {songInList.artist}
                       </li>
                     )
                   )}
@@ -118,10 +130,12 @@ const Body: React.FC = () => {
               <div className="info">
                 <img
                   className="info_img"
-                  src={`${process.env.PUBLIC_URL}/assets/song_images/${song.img}`}
+                  src={`${process.env.PUBLIC_URL}/assets/song_images/${clickedSong.img}`}
                   alt=""
                 />
-                <p className="info_text">{song.info}</p>
+                <p className="info_text">
+                  {clickedSong.info}
+                </p>
               </div>
             </div>
           </div>

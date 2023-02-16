@@ -9,6 +9,16 @@ export const genresArray: string[] = [
   'Classic',
 ];
 
+export const startMessage: musicElemType[] = [
+  {
+    artist: '',
+    img: '/startImg.jpg',
+    audio: '',
+    genre: '',
+    info: 'Please listen the song and chooce correct artist',
+  },
+];
+
 export const allSongsArray: musicElemType[][] = [
   [
     {
