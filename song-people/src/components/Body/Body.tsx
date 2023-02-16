@@ -10,11 +10,9 @@ import './player.scss';
 import AudioPlayer from 'react-h5-audio-player';
 
 const Body: React.FC = () => {
-  // const [level, setLevel] = useState<string>(
-  //   allSongsArray[0][0].genre
-  // );
-
   const [levelNum, setLevelNum] = useState<number>(0);
+  const [disableStart, setDisableStart] =
+    useState<boolean>(false);
   const [selectedSongList, setSelectedSongList] = useState<
     musicElemType[]
   >([]);
@@ -22,24 +20,19 @@ const Body: React.FC = () => {
     allSongsArray[0][0]
   );
 
-  // const [classNameBtn, setClassNameBtn] =
-  //   useState<string>('');
-
-  // const [popArray, rockArray] = allSongsArray;
-
   const startGame = () => {
     chooseLevel();
+    setDisableStart(true);
   };
 
   const chooseLevel = () => {
-    console.log('chooseLevel');
+    setLevelNum((prev) => prev + 1);
   };
 
   const appointRandomSong = () => {
-    console.log(
-      'allSongsArray[levelNum]',
-      allSongsArray[levelNum]
-    );
+    console.log('appointRandomSong');
+    console.log(levelNum);
+
     let randomSong = Math.floor(
       Math.random() * allSongsArray[levelNum].length
     );
@@ -47,8 +40,9 @@ const Body: React.FC = () => {
   };
 
   useEffect(() => {
+    console.log('useEffect');
     appointRandomSong();
-  }, allSongsArray[levelNum]);
+  }, [levelNum]);
 
   const checkAnswer = (answer: musicElemType) => {
     if (answer.artist === song.artist) {
@@ -66,9 +60,8 @@ const Body: React.FC = () => {
   };
 
   const answerRight = () => {
-    setLevelNum((prev) => prev + 1);
     console.log('answerRight levelNum', levelNum);
-    appointRandomSong();
+    setDisableStart(false);
   };
 
   return (
@@ -79,7 +72,6 @@ const Body: React.FC = () => {
             <li className="genres-list_item">{genre}</li>
           ))}
         </ul>
-        {/* {popArray.map((song: musicElemType) => ( */}
         <div className="game">
           <div className="player">
             <img
@@ -110,8 +102,6 @@ const Body: React.FC = () => {
                           selectedSongList.includes(song) &&
                           'clicked'
                         }`}
-                        // disabled = {selectedSongList.includes(song)}
-
                         onClick={() => {
                           if (
                             !selectedSongList.includes(song)
@@ -136,10 +126,13 @@ const Body: React.FC = () => {
             </div>
           </div>
         </div>
-        {/* ))} */}
         <button
           className="button-next"
-          onClick={() => startGame()}>
+          onClick={() => {
+            if (!disableStart) {
+              startGame();
+            }
+          }}>
           Next Level
         </button>
       </div>
