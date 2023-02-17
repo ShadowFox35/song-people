@@ -14,9 +14,11 @@ const Body: React.FC = () => {
   const [levelNum, setLevelNum] = useState<number>(0);
   const [disableStart, setDisableStart] =
     useState<boolean>(true);
-  const [selectedSongList, setSelectedSongList] = useState<
-    musicElemType[]
-  >([]);
+  const [selectedWrongList, setSelectedWrongList] =
+    useState<musicElemType[]>([]);
+  const [selectedRightList, setsSelectedRightList] =
+    useState<musicElemType[]>([]);
+
   const [song, setSong] = useState<musicElemType>(
     allSongsArray[0][0]
   );
@@ -26,6 +28,7 @@ const Body: React.FC = () => {
   const startGame = () => {
     chooseLevel();
     setDisableStart(true);
+    setClickedSong(startMessage[0]);
   };
 
   const chooseLevel = () => {
@@ -51,21 +54,24 @@ const Body: React.FC = () => {
     setClickedSong(answer);
 
     if (answer.artist === song.artist) {
-      answerRight();
+      answerRight(answer);
     } else {
-      answerWrong();
-      let list = [...selectedSongList];
-      list.push(answer);
-      setSelectedSongList(list); //добавление выбранного неправильного ответа в массив
+      answerWrong(answer);
     }
   };
 
-  const answerWrong = () => {
+  const answerWrong = (answer: musicElemType) => {
     console.log('answerWrong');
+    let list = [...selectedWrongList];
+    list.push(answer);
+    setSelectedWrongList(list); //добавление выбранного неправильного ответа в массив
   };
 
-  const answerRight = () => {
+  const answerRight = (answer: musicElemType) => {
     console.log('answerRight levelNum', levelNum);
+    let list = [...selectedRightList];
+    list.push(answer);
+    setsSelectedRightList(list);
     setDisableStart(false);
   };
 
@@ -104,21 +110,17 @@ const Body: React.FC = () => {
                     (songInList: musicElemType) => (
                       <li
                         className={`artists_list_item ${
-                          selectedSongList.includes(
+                          selectedWrongList.includes(
                             songInList
-                          ) && 'clicked'
+                          ) && 'answer-wrong'
                         }`}
                         onClick={() => {
                           if (
-                            !selectedSongList.includes(
+                            !selectedWrongList.includes(
                               songInList
                             )
                           ) {
                             checkAnswer(songInList);
-                            console.log(
-                              'clicked song obj',
-                              songInList
-                            );
                           }
                         }}>
                         {songInList.artist}

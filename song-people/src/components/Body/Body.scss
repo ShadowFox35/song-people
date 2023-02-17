@@ -106,10 +106,17 @@
                   cursor: pointer;
                 }
               }
-              .clicked {
+              .answer-wrong {
                 background-color: #d4d7d9;
                 color: #505455a9;
                 text-decoration: line-through;
+                &:hover {
+                  cursor: unset;
+                }
+              }
+              .answer-right {
+                background-color: #018abe;
+                font-weight: bold;
                 &:hover {
                   cursor: unset;
                 }
