@@ -18,8 +18,8 @@ const Body: React.FC = () => {
     useState<musicElemType[]>([]);
   // const [selectedRightList, setsSelectedRightList] =
   //   useState<musicElemType[]>([]);
-  const [answerStatus, setAnswerStatus] =
-    useState<boolean>(false);
+  // const [answerStatus, setAnswerStatus] =
+  //   useState<boolean>(false);
 
   const [song, setSong] = useState<musicElemType>(
     allSongsArray[0][0]
@@ -35,6 +35,7 @@ const Body: React.FC = () => {
 
   const chooseLevel = () => {
     setLevelNum((prev) => prev + 1);
+    setSelectedWrongList([]);
   };
 
   const appointRandomSong = () => {
@@ -71,7 +72,7 @@ const Body: React.FC = () => {
 
   const answerRight = (answer: musicElemType) => {
     console.log('answerRight levelNum', levelNum);
-    setAnswerStatus(true);
+    // setAnswerStatus(true);
     // allSongsArray[levelNum].forEach((elem) => {
     //   if (
     //     !selectedWrongList.includes(elem) &&
@@ -82,6 +83,7 @@ const Body: React.FC = () => {
     //     setSelectedWrongList(list);
     //   }
     // });
+    setDisableStart(false);
     let list = allSongsArray[levelNum].filter(
       (elem) => elem !== answer
     );
@@ -127,14 +129,23 @@ const Body: React.FC = () => {
                           selectedWrongList.includes(
                             songInList
                           ) && 'answer-wrong'
+                          // (answerStatus === true)&&'answer-right'
+                        } ${
+                          selectedWrongList.length === 4 &&
+                          !selectedWrongList.includes(
+                            songInList
+                          ) &&
+                          'answer-right'
                         }`}
                         onClick={() => {
                           if (
                             !selectedWrongList.includes(
                               songInList
-                            )
+                            ) &&
+                            selectedWrongList.length !== 4
                           ) {
                             checkAnswer(songInList);
+                            console.log('li onClick');
                           }
                         }}>
                         {songInList.artist}
