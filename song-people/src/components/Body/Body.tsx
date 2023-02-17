@@ -16,8 +16,10 @@ const Body: React.FC = () => {
     useState<boolean>(true);
   const [selectedWrongList, setSelectedWrongList] =
     useState<musicElemType[]>([]);
-  const [selectedRightList, setsSelectedRightList] =
-    useState<musicElemType[]>([]);
+  // const [selectedRightList, setsSelectedRightList] =
+  //   useState<musicElemType[]>([]);
+  const [answerStatus, setAnswerStatus] =
+    useState<boolean>(false);
 
   const [song, setSong] = useState<musicElemType>(
     allSongsArray[0][0]
@@ -69,10 +71,22 @@ const Body: React.FC = () => {
 
   const answerRight = (answer: musicElemType) => {
     console.log('answerRight levelNum', levelNum);
-    let list = [...selectedRightList];
-    list.push(answer);
-    setsSelectedRightList(list);
-    setDisableStart(false);
+    setAnswerStatus(true);
+    // allSongsArray[levelNum].forEach((elem) => {
+    //   if (
+    //     !selectedWrongList.includes(elem) &&
+    //     elem !== answer
+    //   ) {
+    //     let list = [...selectedWrongList];
+    //     list.push(elem);
+    //     setSelectedWrongList(list);
+    //   }
+    // });
+    let list = allSongsArray[levelNum].filter(
+      (elem) => elem !== answer
+    );
+    setSelectedWrongList(list);
+    console.log('list', selectedWrongList);
   };
 
   return (
