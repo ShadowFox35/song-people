@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { musicElemType } from '../../types/Objects';
 import {
   genresArray,
   allSongsArray,
   startMessage,
 } from '../../constants/musicArray';
-// import { goodElemType } from '../../type/Objects';
 import './Body.scss';
 import './player.scss';
 import AudioPlayer from 'react-h5-audio-player';
@@ -16,10 +15,6 @@ const Body: React.FC = () => {
     useState<boolean>(true);
   const [selectedWrongList, setSelectedWrongList] =
     useState<musicElemType[]>([]);
-  // const [selectedRightList, setsSelectedRightList] =
-  //   useState<musicElemType[]>([]);
-  // const [answerStatus, setAnswerStatus] =
-  //   useState<boolean>(false);
 
   const [song, setSong] = useState<musicElemType>(
     allSongsArray[0][0]
@@ -72,17 +67,6 @@ const Body: React.FC = () => {
 
   const answerRight = (answer: musicElemType) => {
     console.log('answerRight levelNum', levelNum);
-    // setAnswerStatus(true);
-    // allSongsArray[levelNum].forEach((elem) => {
-    //   if (
-    //     !selectedWrongList.includes(elem) &&
-    //     elem !== answer
-    //   ) {
-    //     let list = [...selectedWrongList];
-    //     list.push(elem);
-    //     setSelectedWrongList(list);
-    //   }
-    // });
     setDisableStart(false);
     let list = allSongsArray[levelNum].filter(
       (elem) => elem !== answer
@@ -145,7 +129,6 @@ const Body: React.FC = () => {
                             selectedWrongList.length !== 4
                           ) {
                             checkAnswer(songInList);
-                            console.log('li onClick');
                           }
                         }}>
                         {songInList.artist}
@@ -168,7 +151,9 @@ const Body: React.FC = () => {
           </div>
         </div>
         <button
-          className="button-next"
+          className={`button-next ${
+            disableStart && 'disabled'
+          }`}
           onClick={() => {
             if (!disableStart) {
               startGame();
