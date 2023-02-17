@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import useSound from 'use-sound';
 import { musicElemType } from '../../types/Objects';
 import {
   genresArray,
@@ -21,6 +22,13 @@ const Body: React.FC = () => {
   );
   const [clickedSong, setClickedSong] =
     useState<musicElemType>(startMessage[0]);
+
+  const [rightSound] = useSound(
+    `${process.env.PUBLIC_URL}/assets/sounds/rightAnswerSound.mp3`
+  );
+  const [wrongSound] = useSound(
+    `${process.env.PUBLIC_URL}/assets/sounds/wrongAnswerSound.mp3`
+  );
 
   const startGame = () => {
     chooseLevel();
@@ -59,14 +67,14 @@ const Body: React.FC = () => {
   };
 
   const answerWrong = (answer: musicElemType) => {
-    console.log('answerWrong');
+    wrongSound();
     let list = [...selectedWrongList];
     list.push(answer);
     setSelectedWrongList(list); //добавление выбранного неправильного ответа в массив
   };
 
   const answerRight = (answer: musicElemType) => {
-    console.log('answerRight levelNum', levelNum);
+    rightSound();
     setDisableStart(false);
     let list = allSongsArray[levelNum].filter(
       (elem) => elem !== answer

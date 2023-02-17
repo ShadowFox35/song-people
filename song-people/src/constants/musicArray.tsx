@@ -1,4 +1,7 @@
-import { musicElemType } from '../types/Objects';
+import {
+  answerSoundsType,
+  musicElemType,
+} from '../types/Objects';
 
 export const genresArray: string[] = [
   'Pop',
@@ -7,6 +10,13 @@ export const genresArray: string[] = [
   'Rap',
   'Electro',
   'Classic',
+];
+
+export const answerSounds: answerSoundsType[] = [
+  {
+    right: '/rightAnswerSound.mp3',
+    wrong: '/wrongAnswerSound.mp3',
+  },
 ];
 
 export const startMessage: musicElemType[] = [
