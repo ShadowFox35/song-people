@@ -1,45 +1,47 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import useSound from 'use-sound';
 import { musicElemType } from '../../types/Objects';
 import {
   genresArray,
   allSongsArray,
+  startMessage,
 } from '../../constants/musicArray';
-// import { goodElemType } from '../../type/Objects';
 import './Body.scss';
 import './player.scss';
 import AudioPlayer from 'react-h5-audio-player';
 
 const Body: React.FC = () => {
-  // const [level, setLevel] = useState<string>(
-  //   allSongsArray[0][0].genre
-  // );
-
   const [levelNum, setLevelNum] = useState<number>(0);
-  const [selectedSongList, setSelectedSongList] = useState<
-    musicElemType[]
-  >([]);
+  const [disableStart, setDisableStart] =
+    useState<boolean>(true);
+  const [selectedWrongList, setSelectedWrongList] =
+    useState<musicElemType[]>([]);
+
   const [song, setSong] = useState<musicElemType>(
     allSongsArray[0][0]
   );
+  const [clickedSong, setClickedSong] =
+    useState<musicElemType>(startMessage[0]);
 
-  // const [classNameBtn, setClassNameBtn] =
-  //   useState<string>('');
-
-  // const [popArray, rockArray] = allSongsArray;
+  const [rightSound] = useSound(
+    `${process.env.PUBLIC_URL}/assets/sounds/rightAnswerSound.mp3`
+  );
+  const [wrongSound] = useSound(
+    `${process.env.PUBLIC_URL}/assets/sounds/wrongAnswerSound.mp3`
+  );
 
   const startGame = () => {
     chooseLevel();
+    setDisableStart(true);
+    setClickedSong(startMessage[0]);
   };
 
   const chooseLevel = () => {
-    console.log('chooseLevel');
+    setLevelNum((prev) => prev + 1);
+    setSelectedWrongList([]);
   };
 
   const appointRandomSong = () => {
-    console.log(
-      'allSongsArray[levelNum]',
-      allSongsArray[levelNum]
-    );
     let randomSong = Math.floor(
       Math.random() * allSongsArray[levelNum].length
     );
@@ -47,28 +49,38 @@ const Body: React.FC = () => {
   };
 
   useEffect(() => {
+    console.log('useEffect');
     appointRandomSong();
-  }, allSongsArray[levelNum]);
+  }, [levelNum]);
 
   const checkAnswer = (answer: musicElemType) => {
+    setClickedSong(answer);
+
     if (answer.artist === song.artist) {
-      answerRight();
+      answerRight(answer);
     } else {
-      answerWrong();
-      let list = [...selectedSongList];
-      list.push(answer);
-      setSelectedSongList(list); //добавление выбранного неправильного ответа в массив
+      answerWrong(answer);
     }
   };
 
-  const answerWrong = () => {
-    console.log('answerWrong');
+  const answerWrong = (answer: musicElemType) => {
+    wrongSound();
+    let list = [...selectedWrongList];
+    list.push(answer);
+    setSelectedWrongList(list); //добавление выбранного неправильного ответа в массив
+    if (selectedWrongList.length === 3) {
+      setDisableStart(false);
+    }
   };
 
-  const answerRight = () => {
-    setLevelNum((prev) => prev + 1);
-    console.log('answerRight levelNum', levelNum);
-    appointRandomSong();
+  const answerRight = (answer: musicElemType) => {
+    rightSound();
+    setDisableStart(false);
+    let list = allSongsArray[levelNum].filter(
+      (elem) => elem !== answer
+    );
+    setSelectedWrongList(list);
+    console.log('list', selectedWrongList);
   };
 
   return (
@@ -79,7 +91,6 @@ const Body: React.FC = () => {
             <li className="genres-list_item">{genre}</li>
           ))}
         </ul>
-        {/* {popArray.map((song: musicElemType) => ( */}
         <div className="game">
           <div className="player">
             <img
@@ -104,22 +115,31 @@ const Body: React.FC = () => {
               <div className="artists">
                 <ul className="artists_list">
                   {allSongsArray[levelNum].map(
-                    (song: musicElemType) => (
+                    (songInList: musicElemType) => (
                       <li
                         className={`artists_list_item ${
-                          selectedSongList.includes(song) &&
-                          'clicked'
+                          selectedWrongList.includes(
+                            songInList
+                          ) && 'answer-wrong'
+                          // (answerStatus === true)&&'answer-right'
+                        } ${
+                          selectedWrongList.length === 4 &&
+                          !selectedWrongList.includes(
+                            songInList
+                          ) &&
+                          'answer-right'
                         }`}
-                        // disabled = {selectedSongList.includes(song)}
-
                         onClick={() => {
                           if (
-                            !selectedSongList.includes(song)
+                            !selectedWrongList.includes(
+                              songInList
+                            ) &&
+                            selectedWrongList.length !== 4
                           ) {
-                            checkAnswer(song);
+                            checkAnswer(songInList);
                           }
                         }}>
-                        {song.artist}
+                        {songInList.artist}
                       </li>
                     )
                   )}
@@ -128,18 +148,25 @@ const Body: React.FC = () => {
               <div className="info">
                 <img
                   className="info_img"
-                  src={`${process.env.PUBLIC_URL}/assets/song_images/${song.img}`}
+                  src={`${process.env.PUBLIC_URL}/assets/song_images/${clickedSong.img}`}
                   alt=""
                 />
-                <p className="info_text">{song.info}</p>
+                <p className="info_text">
+                  {clickedSong.info}
+                </p>
               </div>
             </div>
           </div>
         </div>
-        {/* ))} */}
         <button
-          className="button-next"
-          onClick={() => startGame()}>
+          className={`button-next ${
+            disableStart && 'disabled'
+          }`}
+          onClick={() => {
+            if (!disableStart) {
+              startGame();
+            }
+          }}>
           Next Level
         </button>
       </div>

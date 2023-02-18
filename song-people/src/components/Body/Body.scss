@@ -103,13 +103,21 @@
                 height: 50px;
                 text-align: center;
                 &:hover {
+                  background-color: #8edbf9;
                   cursor: pointer;
                 }
               }
-              .clicked {
+              .answer-wrong {
                 background-color: #d4d7d9;
                 color: #505455a9;
                 text-decoration: line-through;
+                &:hover {
+                  cursor: unset;
+                }
+              }
+              .answer-right {
+                background-color: #1cb8f6;
+                font-weight: bold;
                 &:hover {
                   cursor: unset;
                 }
@@ -142,6 +150,7 @@
     }
 
     .button-next {
+      background-color: #1cb8f6;
       border-radius: 20px;
       width: 150px;
       height: 50px;
@@ -149,6 +158,17 @@
       font-weight: 600;
       font-size: 20px;
       margin-bottom: 30px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .disabled {
+      background-color: #d4d7d9;
+      color: #505455a9;
+      &:hover {
+        cursor: unset;
+      }
     }
   }
 }

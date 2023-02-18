@@ -5,3 +5,8 @@ export interface musicElemType {
   genre: string;
   info: string;
 }
+
+export interface answerSoundsType {
+  right: string;
+  wrong: string;
+}
