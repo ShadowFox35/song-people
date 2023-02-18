@@ -10,8 +10,16 @@ import './Body.scss';
 import './player.scss';
 import AudioPlayer from 'react-h5-audio-player';
 
-const Body: React.FC = () => {
-  const [levelNum, setLevelNum] = useState<number>(0);
+interface BodyProps {
+  levelNum: number;
+  setLevelNum: Function;
+}
+
+const Body: React.FC<BodyProps> = ({
+  levelNum,
+  setLevelNum,
+}) => {
+  // const [levelNum, setLevelNum] = useState<number>(0);
   const [disableStart, setDisableStart] =
     useState<boolean>(true);
   const [selectedWrongList, setSelectedWrongList] =
@@ -37,7 +45,8 @@ const Body: React.FC = () => {
   };
 
   const chooseLevel = () => {
-    setLevelNum((prev) => prev + 1);
+    // setLevelNum((prev) => prev + 1);
+    setLevelNum(levelNum + 1);
     setSelectedWrongList([]);
   };
 
