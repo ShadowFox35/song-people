@@ -42,9 +42,6 @@ const Body: React.FC = () => {
   };
 
   const appointRandomSong = () => {
-    console.log('appointRandomSong');
-    console.log(levelNum);
-
     let randomSong = Math.floor(
       Math.random() * allSongsArray[levelNum].length
     );
@@ -71,6 +68,9 @@ const Body: React.FC = () => {
     let list = [...selectedWrongList];
     list.push(answer);
     setSelectedWrongList(list); //добавление выбранного неправильного ответа в массив
+    if (selectedWrongList.length === 3) {
+      setDisableStart(false);
+    }
   };
 
   const answerRight = (answer: musicElemType) => {
