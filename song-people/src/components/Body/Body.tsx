@@ -12,12 +12,17 @@ const Body: React.FC = () => {
   const [levelNum, setLevelNum] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
 
+  console.log('levelNum', levelNum);
+  console.log(allSongsArray.length);
+  console.log(levelNum === allSongsArray.length);
+
   return (
     <div className="body">
       <div className="body_wrapper">
-        <Levels />
+        <Levels levelNum={levelNum} />
         {levelNum === allSongsArray.length ? (
-          <Modal score={score} setScore={setScore} />
+          <Modal score={score} setScore={setScore} levelNum={levelNum}
+          setLevelNum={setLevelNum}/>
         ) : (
           <Game
             levelNum={levelNum}

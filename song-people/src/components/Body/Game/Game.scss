@@ -1,6 +1,6 @@
 .game {
   padding: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   border-radius: 20px;
   border: 2px solid black;
   width: 1000px;
@@ -47,12 +47,12 @@
 .button-next {
   background-color: #1cb8f6;
   border-radius: 20px;
-  width: 150px;
+  padding: 0 10px;
   height: 50px;
   font-family: 'Montserrat';
   font-weight: 600;
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   &:hover {
     cursor: pointer;
   }

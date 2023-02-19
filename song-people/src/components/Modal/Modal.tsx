@@ -5,18 +5,32 @@ import './Modal.scss';
 interface ModalProps {
   score: number;
   setScore: Function;
+  levelNum: number;
+  setLevelNum: Function;
 }
 
 const Modal: React.FC<ModalProps> = ({
   score,
   setScore,
 }) => {
+  const newGame = () => {
+    setScore(0);
+  };
+
   return (
-    <div className="body">
-      <div className="wrapper">
-        {' '}
-        <button className="basket-btn">Modal </button>
-      </div>
+    <div className="modal">
+      <div className="modal_message">Congrats</div>
+      <div className="madal_score">
+        You passed the quiz and scored {score} out of 30
+        possible points
+      </div>{' '}
+      <button
+        className="btn-new"
+        onClick={() => {
+          newGame();
+        }}>
+        Start new game{' '}
+      </button>
     </div>
   );
 };

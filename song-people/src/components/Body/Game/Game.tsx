@@ -36,7 +36,6 @@ const Game: React.FC<GameProps> = ({
   };
 
   const chooseLevel = () => {
-    // setLevelNum((prev) => prev + 1);
     setLevelNum(levelNum + 1);
     setSelectedWrongList([]);
   };
@@ -49,7 +48,6 @@ const Game: React.FC<GameProps> = ({
   };
 
   useEffect(() => {
-    console.log('useEffect');
     appointRandomSong();
   }, [levelNum]);
 

@@ -1,17 +1,27 @@
 import React from 'react';
-import { genresArray } from '../../../constants/musicArray';
+import {
+  allSongsArray,
+  genresArray,
+} from '../../../constants/musicArray';
 import './Levels.scss';
 
-// interface LevelsProps {
-//   score: number;
-//   setScore: Function;
-// }
+interface LevelsProps {
+  levelNum: number;
+  // score: number;
+  // setScore: Function;
+}
 
-const Levels: React.FC = () => {
+const Levels: React.FC<LevelsProps> = ({ levelNum }) => {
   return (
     <ul className="genres-list">
       {genresArray.map((genre: string) => (
-        <li className="genres-list_item">{genre}</li>
+        <li
+          className={`genres-list_item ${
+            genre === allSongsArray[levelNum][0].genre &&
+            'active'
+          }`}>
+          {genre}
+        </li>
       ))}
     </ul>
   );
