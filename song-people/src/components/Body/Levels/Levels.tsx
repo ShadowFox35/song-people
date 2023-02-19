@@ -1,22 +1,19 @@
 import React from 'react';
+import { genresArray } from '../../../constants/musicArray';
 import './Levels.scss';
 
-interface LevelsProps {
-  score: number;
-  setScore: Function;
-}
+// interface LevelsProps {
+//   score: number;
+//   setScore: Function;
+// }
 
-const Levels: React.FC<LevelsProps> = ({
-  score,
-  setScore,
-}) => {
+const Levels: React.FC = () => {
   return (
-    <div className="body">
-      <div className="wrapper">
-        {' '}
-        <button className="basket-btn">Modal </button>
-      </div>
-    </div>
+    <ul className="genres-list">
+      {genresArray.map((genre: string) => (
+        <li className="genres-list_item">{genre}</li>
+      ))}
+    </ul>
   );
 };
 
