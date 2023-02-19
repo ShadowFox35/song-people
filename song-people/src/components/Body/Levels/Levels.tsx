@@ -14,11 +14,10 @@ interface LevelsProps {
 const Levels: React.FC<LevelsProps> = ({ levelNum }) => {
   return (
     <ul className="genres-list">
-      {genresArray.map((genre: string) => (
+      {genresArray.map((genre: string, index) => (
         <li
           className={`genres-list_item ${
-            genre === allSongsArray[levelNum][0].genre &&
-            'active'
+            index === levelNum && 'active'
           }`}>
           {genre}
         </li>

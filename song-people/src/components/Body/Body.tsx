@@ -14,7 +14,7 @@ const Body: React.FC = () => {
 
   console.log('levelNum', levelNum);
   console.log(allSongsArray.length);
-  console.log(levelNum === allSongsArray.length);
+  console.log('условие',levelNum === allSongsArray.length);
 
   return (
     <div className="body">

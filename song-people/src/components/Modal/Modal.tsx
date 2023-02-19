@@ -10,11 +10,13 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({
+  setLevelNum,
   score,
   setScore,
 }) => {
   const newGame = () => {
     setScore(0);
+    setLevelNum(0);
   };
 
   return (
