@@ -1,0 +1,21 @@
+.info {
+  padding: 15px;
+  width: 440px;
+  height: 300px;
+  border-radius: 20px;
+  border: 2px solid black;
+  &_img {
+    float: left;
+    margin: 0 7px 7px 0px;
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+  }
+  &_text {
+    margin: 0;
+    text-align: justify;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 18px;
+  }
+}
