@@ -17,6 +17,8 @@ interface ModalProps {
   setClickedSong: Function;
   disableStart: boolean;
   setDisableStart: Function;
+  score: number;
+  setScore: Function;
 }
 
 const Artists: React.FC<ModalProps> = ({
@@ -29,6 +31,8 @@ const Artists: React.FC<ModalProps> = ({
   setClickedSong,
   disableStart,
   setDisableStart,
+  score,
+  setScore,
 }) => {
   const [rightSound] = useSound(
     `${process.env.PUBLIC_URL}/assets/sounds/rightAnswerSound.mp3`
@@ -64,7 +68,8 @@ const Artists: React.FC<ModalProps> = ({
       (elem) => elem !== answer
     );
     setSelectedWrongList(list);
-    console.log('list', selectedWrongList);
+    setScore(score + 5 - selectedWrongList.length);
+    console.log('score', selectedWrongList.length, score);
   };
 
   return (
@@ -76,7 +81,6 @@ const Artists: React.FC<ModalProps> = ({
               className={`artists_list_item ${
                 selectedWrongList.includes(songInList) &&
                 'answer-wrong'
-                // (answerStatus === true)&&'answer-right'
               } ${
                 selectedWrongList.length === 4 &&
                 !selectedWrongList.includes(songInList) &&

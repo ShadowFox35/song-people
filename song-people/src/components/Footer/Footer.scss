@@ -5,13 +5,13 @@
   color: aliceblue;
   margin-bottom: 0;
 
-  .wrapper {
+  &_wrapper {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 0;
     width: 1280px;
     margin: auto;
+    padding: 0 40px;
     height: 100%;
     @media only screen and (max-width: 1280px) {
       width: 100%;
@@ -20,17 +20,20 @@
 }
 
 .rights {
+  font-family: 'Spectral SC';
+  font-size: 30px;
   display: flex;
   gap: 10px;
 }
 
 .github {
+  font-family: 'Montserrat';
+  font-size: 20px;
   display: flex;
   align-items: center;
   &_link {
     color: aliceblue;
     text-decoration: none;
-    line-height: 50px;
     transition: 0.5s;
     &:hover {
       cursor: pointer;
@@ -41,12 +44,13 @@
 }
 
 .linkedIn {
+  font-family: 'Montserrat';
+  font-size: 20px;
   display: flex;
   align-items: center;
   &_link {
     color: aliceblue;
     text-decoration: none;
-    line-height: 50px;
     transition: 0.5s;
     &:hover {
       cursor: pointer;

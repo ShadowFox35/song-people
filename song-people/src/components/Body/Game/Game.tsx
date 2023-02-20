@@ -12,11 +12,15 @@ import './Game.scss';
 interface GameProps {
   levelNum: number;
   setLevelNum: Function;
+  score: number;
+  setScore:Function;
 }
 
 const Game: React.FC<GameProps> = ({
   levelNum,
   setLevelNum,
+  score,
+  setScore
 }) => {
   const [selectedWrongList, setSelectedWrongList] =
     useState<musicElemType[]>([]);
@@ -83,6 +87,8 @@ const Game: React.FC<GameProps> = ({
             setClickedSong={setClickedSong}
             disableStart={disableStart}
             setDisableStart={setDisableStart}
+            score={score}
+            setScore={setScore}
           />
           <Info
             clickedSong={clickedSong}

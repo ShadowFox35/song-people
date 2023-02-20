@@ -22,7 +22,7 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <div className="modal">
       <div className="modal_message">Congrats</div>
-      <div className="madal_score">
+      <div className="modal_score">
         You passed the quiz and scored {score} out of 30
         possible points
       </div>{' '}
