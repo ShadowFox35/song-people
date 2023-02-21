@@ -1,5 +1,4 @@
 import React from 'react';
-// import { goodElemType } from '../../type/Objects';
 import './Header.scss';
 
 interface HeaderProps {

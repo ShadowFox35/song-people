@@ -1,5 +1,4 @@
 import React from 'react';
-// import { goodElemType } from '../../type/Objects';
 import './Footer.scss';
 
 const Footer: React.FC = () => {

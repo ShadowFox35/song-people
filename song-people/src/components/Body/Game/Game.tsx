@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import { musicElemType } from '../../../types/Objects';
-import Artists from './Artists';
-import Info from './Info';
+import Artists from './Artists/Artists';
+import Info from './Info/Info';
 import {
   allSongsArray,
   startMessage,
@@ -13,14 +13,14 @@ interface GameProps {
   levelNum: number;
   setLevelNum: Function;
   score: number;
-  setScore:Function;
+  setScore: Function;
 }
 
 const Game: React.FC<GameProps> = ({
   levelNum,
   setLevelNum,
   score,
-  setScore
+  setScore,
 }) => {
   const [selectedWrongList, setSelectedWrongList] =
     useState<musicElemType[]>([]);
@@ -60,7 +60,14 @@ const Game: React.FC<GameProps> = ({
       <div className="player">
         <img
           className="player_img"
-          src={`${process.env.PUBLIC_URL}/assets/song_images/Zefirka.svg`}
+          src={`${
+            process.env.PUBLIC_URL
+          }/assets/song_images/${
+            clickedSong === song ||
+            selectedWrongList.length === 4
+              ? song.img
+              : startMessage[0].img
+          }`}
           alt=""
         />
         <div className="player_wrapper">
@@ -70,6 +77,7 @@ const Game: React.FC<GameProps> = ({
               customAdditionalControls={[]}
               showJumpControls={false}
               autoPlayAfterSrcChange={false}
+              volume={0.5}
             />
           )}
         </div>
@@ -80,10 +88,8 @@ const Game: React.FC<GameProps> = ({
           <Artists
             song={song}
             levelNum={levelNum}
-            setLevelNum={setLevelNum}
             selectedWrongList={selectedWrongList}
             setSelectedWrongList={setSelectedWrongList}
-            clickedSong={clickedSong}
             setClickedSong={setClickedSong}
             disableStart={disableStart}
             setDisableStart={setDisableStart}
@@ -92,7 +98,8 @@ const Game: React.FC<GameProps> = ({
           />
           <Info
             clickedSong={clickedSong}
-            setClickedSong={setClickedSong}
+            song={song}
+            selectedWrongList={selectedWrongList}
           />
         </div>
       </div>
