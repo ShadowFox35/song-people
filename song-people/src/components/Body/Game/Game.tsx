@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import { musicElemType } from '../../../types/Objects';
-import Artists from './Artists';
-import Info from './Info';
+import Artists from './Artists/Artists';
+import Info from './Info/Info';
 import {
   allSongsArray,
   startMessage,
@@ -87,17 +87,19 @@ const Game: React.FC<GameProps> = ({
           <Artists
             song={song}
             levelNum={levelNum}
-            setLevelNum={setLevelNum}
             selectedWrongList={selectedWrongList}
             setSelectedWrongList={setSelectedWrongList}
-            clickedSong={clickedSong}
             setClickedSong={setClickedSong}
             disableStart={disableStart}
             setDisableStart={setDisableStart}
             score={score}
             setScore={setScore}
           />
-          <Info clickedSong={clickedSong} song={song} selectedWrongList={selectedWrongList}/>
+          <Info
+            clickedSong={clickedSong}
+            song={song}
+            selectedWrongList={selectedWrongList}
+          />
         </div>
       </div>
       <button
