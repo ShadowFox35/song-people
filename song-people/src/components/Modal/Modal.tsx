@@ -1,5 +1,4 @@
 import React from 'react';
-// import { goodElemType } from '../../type/Objects';
 import './Modal.scss';
 
 interface ModalProps {

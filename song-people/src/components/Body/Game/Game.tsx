@@ -77,6 +77,7 @@ const Game: React.FC<GameProps> = ({
               customAdditionalControls={[]}
               showJumpControls={false}
               autoPlayAfterSrcChange={false}
+              volume={0.5}
             />
           )}
         </div>

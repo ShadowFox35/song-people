@@ -25,7 +25,7 @@ export const startMessage: musicElemType[] = [
     img: '/startImg.jpg',
     audio: '',
     genre: '',
-    info: 'Please listen the song and choose correct artist',
+    info: 'Please listen to the song and choose the right artist',
   },
 ];
 

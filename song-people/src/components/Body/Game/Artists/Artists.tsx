@@ -66,8 +66,9 @@ const Artists: React.FC<ModalProps> = ({
     <div className="artists">
       <ul className="artists_list">
         {allSongsArray[levelNum].map(
-          (songInList: musicElemType) => (
+          (songInList: musicElemType, index: number) => (
             <li
+              key={index}
               className={`artists_list_item ${
                 selectedWrongList.includes(songInList) &&
                 'answer-wrong'

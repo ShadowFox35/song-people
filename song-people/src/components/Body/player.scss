@@ -61,7 +61,6 @@
   align-self: center;
   margin: 0 calc(10px + 1%);
   cursor: pointer;
-  // -webkit-user-select: none;
   outline: none;
 }
 .rhap_current-time {
@@ -169,7 +168,6 @@
   display: flex;
   align-items: center;
   flex: 0 1 100px;
-  // -webkit-user-select: none;
 }
 .rhap_volume-bar-area {
   display: flex;
