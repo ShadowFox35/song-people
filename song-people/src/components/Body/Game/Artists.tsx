@@ -55,7 +55,7 @@ const Artists: React.FC<ModalProps> = ({
     wrongSound();
     let list = [...selectedWrongList];
     list.push(answer);
-    setSelectedWrongList(list); //добавление выбранного неправильного ответа в массив
+    setSelectedWrongList(list);
     if (selectedWrongList.length === 3) {
       setDisableStart(false);
     }
@@ -69,7 +69,6 @@ const Artists: React.FC<ModalProps> = ({
     );
     setSelectedWrongList(list);
     setScore(score + 5 - selectedWrongList.length);
-    console.log('score', selectedWrongList.length, score);
   };
 
   return (

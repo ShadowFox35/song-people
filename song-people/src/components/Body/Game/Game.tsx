@@ -13,14 +13,14 @@ interface GameProps {
   levelNum: number;
   setLevelNum: Function;
   score: number;
-  setScore:Function;
+  setScore: Function;
 }
 
 const Game: React.FC<GameProps> = ({
   levelNum,
   setLevelNum,
   score,
-  setScore
+  setScore,
 }) => {
   const [selectedWrongList, setSelectedWrongList] =
     useState<musicElemType[]>([]);
@@ -60,7 +60,14 @@ const Game: React.FC<GameProps> = ({
       <div className="player">
         <img
           className="player_img"
-          src={`${process.env.PUBLIC_URL}/assets/song_images/Zefirka.svg`}
+          src={`${
+            process.env.PUBLIC_URL
+          }/assets/song_images/${
+            clickedSong === song ||
+            selectedWrongList.length === 4
+              ? song.img
+              : startMessage[0].img
+          }`}
           alt=""
         />
         <div className="player_wrapper">
@@ -90,10 +97,7 @@ const Game: React.FC<GameProps> = ({
             score={score}
             setScore={setScore}
           />
-          <Info
-            clickedSong={clickedSong}
-            setClickedSong={setClickedSong}
-          />
+          <Info clickedSong={clickedSong} song={song} selectedWrongList={selectedWrongList}/>
         </div>
       </div>
       <button
