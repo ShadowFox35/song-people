@@ -64,7 +64,8 @@ const Game: React.FC<GameProps> = ({
             process.env.PUBLIC_URL
           }/assets/song_images/${
             clickedSong === song ||
-            selectedWrongList.length === 4
+            selectedWrongList.length ===
+              allSongsArray[levelNum].length - 1
               ? song.img
               : startMessage[0].img
           }`}
@@ -100,6 +101,7 @@ const Game: React.FC<GameProps> = ({
             clickedSong={clickedSong}
             song={song}
             selectedWrongList={selectedWrongList}
+            levelNum={levelNum}
           />
         </div>
       </div>

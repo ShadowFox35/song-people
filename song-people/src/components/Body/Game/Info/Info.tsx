@@ -1,4 +1,5 @@
 import React from 'react';
+import { allSongsArray } from '../../../../constants/musicArray';
 import { musicElemType } from '../../../../types/Objects';
 import './Info.scss';
 
@@ -6,12 +7,15 @@ interface InfoProps {
   song: musicElemType;
   clickedSong: musicElemType;
   selectedWrongList: musicElemType[];
+
+  levelNum: number;
 }
 
 const Info: React.FC<InfoProps> = ({
   song,
   clickedSong,
   selectedWrongList,
+  levelNum,
 }) => {
   return (
     <div className="info">
@@ -21,7 +25,8 @@ const Info: React.FC<InfoProps> = ({
           process.env.PUBLIC_URL
         }/assets/song_images/${
           clickedSong === song ||
-          selectedWrongList.length === 4
+          selectedWrongList.length ===
+            allSongsArray[levelNum].length - 1
             ? song.img
             : clickedSong.img
         }`}

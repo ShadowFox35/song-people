@@ -73,14 +73,16 @@ const Artists: React.FC<ModalProps> = ({
                 selectedWrongList.includes(songInList) &&
                 'answer-wrong'
               } ${
-                selectedWrongList.length === 4 &&
+                selectedWrongList.length ===
+                  allSongsArray[levelNum].length - 1 &&
                 !selectedWrongList.includes(songInList) &&
                 'answer-right'
               }`}
               onClick={() => {
                 if (
                   !selectedWrongList.includes(songInList) &&
-                  selectedWrongList.length !== 4
+                  selectedWrongList.length !==
+                    allSongsArray[levelNum].length - 1
                 ) {
                   checkAnswer(songInList);
                 }
