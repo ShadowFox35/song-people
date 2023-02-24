@@ -9,8 +9,6 @@ interface ModalProps {
   selectedWrongList: musicElemType[];
   setSelectedWrongList: Function;
   setClickedSong: Function;
-  disableStart: boolean;
-  setDisableStart: Function;
   score: number;
   setScore: Function;
   endLevel: boolean;
@@ -22,7 +20,6 @@ const Artists: React.FC<ModalProps> = ({
   selectedWrongList,
   setSelectedWrongList,
   setClickedSong,
-  setDisableStart,
   score,
   setScore,
   endLevel,
@@ -48,13 +45,11 @@ const Artists: React.FC<ModalProps> = ({
     list.push(answer);
     setSelectedWrongList(list);
     if (selectedWrongList.length === 3) {
-      setDisableStart(false);
     }
   };
 
   const answerRight = (answer: musicElemType) => {
     rightSound();
-    setDisableStart(false);
     let list = allSongsArray[levelNum].filter((elem) => elem !== answer);
     setSelectedWrongList(list);
     setScore(score + 5 - selectedWrongList.length);

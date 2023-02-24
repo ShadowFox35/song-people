@@ -15,14 +15,12 @@ interface GameProps {
 
 const Game: React.FC<GameProps> = ({ levelNum, setLevelNum, score, setScore }) => {
   const [selectedWrongList, setSelectedWrongList] = useState<musicElemType[]>([]);
-  const [disableStart, setDisableStart] = useState<boolean>(true);
   const [song, setSong] = useState<musicElemType | null>(null);
 
   const [clickedSong, setClickedSong] = useState<musicElemType | null>(null);
 
   const nextLevel = () => {
     appointLevel();
-    setDisableStart(true);
     setClickedSong(null);
   };
 
@@ -71,8 +69,6 @@ const Game: React.FC<GameProps> = ({ levelNum, setLevelNum, score, setScore }) =
             selectedWrongList={selectedWrongList}
             setSelectedWrongList={setSelectedWrongList}
             setClickedSong={setClickedSong}
-            disableStart={disableStart}
-            setDisableStart={setDisableStart}
             score={score}
             setScore={setScore}
             endLevel={endLevel}
@@ -81,9 +77,9 @@ const Game: React.FC<GameProps> = ({ levelNum, setLevelNum, score, setScore }) =
         </div>
       </div>
       <button
-        className={`button-next ${disableStart && 'disabled'}`}
+        className={`button-next ${!endLevel && 'disabled'}`}
         onClick={() => {
-          if (!disableStart) {
+          if (endLevel) {
             nextLevel();
           }
         }}>

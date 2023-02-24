@@ -8,7 +8,7 @@ interface InfoProps {
   endLevel: boolean;
 }
 
-const Info: React.FC<InfoProps> = ({ song, clickedSong,  endLevel }) => {
+const Info: React.FC<InfoProps> = ({ song, clickedSong, endLevel }) => {
   const appointImg = () => {
     if (endLevel) {
       return song?.img;
