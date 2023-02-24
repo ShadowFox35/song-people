@@ -4,7 +4,7 @@ import { musicElemType } from '../../../../types/Objects';
 import './Artists.scss';
 
 interface ModalProps {
-  song: musicElemType;
+  song: musicElemType | null;
   levelNum: number;
   selectedWrongList: musicElemType[];
   setSelectedWrongList: Function;
@@ -25,17 +25,13 @@ const Artists: React.FC<ModalProps> = ({
   score,
   setScore,
 }) => {
-  const [rightSound] = useSound(
-    `${process.env.PUBLIC_URL}/assets/sounds/rightAnswerSound.mp3`
-  );
-  const [wrongSound] = useSound(
-    `${process.env.PUBLIC_URL}/assets/sounds/wrongAnswerSound.mp3`
-  );
+  const [rightSound] = useSound(`${process.env.PUBLIC_URL}/assets/sounds/rightAnswerSound.mp3`);
+  const [wrongSound] = useSound(`${process.env.PUBLIC_URL}/assets/sounds/wrongAnswerSound.mp3`);
 
   const checkAnswer = (answer: musicElemType) => {
     setClickedSong(answer);
 
-    if (answer.artist === song.artist) {
+    if (answer.artist === song?.artist) {
       answerRight(answer);
     } else {
       answerWrong(answer);
@@ -55,9 +51,7 @@ const Artists: React.FC<ModalProps> = ({
   const answerRight = (answer: musicElemType) => {
     rightSound();
     setDisableStart(false);
-    let list = allSongsArray[levelNum].filter(
-      (elem) => elem !== answer
-    );
+    let list = allSongsArray[levelNum].filter((elem) => elem !== answer);
     setSelectedWrongList(list);
     setScore(score + 5 - selectedWrongList.length);
   };
@@ -65,32 +59,20 @@ const Artists: React.FC<ModalProps> = ({
   return (
     <div className="artists">
       <ul className="artists_list">
-        {allSongsArray[levelNum].map(
-          (songInList: musicElemType, index: number) => (
-            <li
-              key={index}
-              className={`artists_list_item ${
-                selectedWrongList.includes(songInList) &&
-                'answer-wrong'
-              } ${
-                selectedWrongList.length ===
-                  allSongsArray[levelNum].length - 1 &&
-                !selectedWrongList.includes(songInList) &&
-                'answer-right'
-              }`}
-              onClick={() => {
-                if (
-                  !selectedWrongList.includes(songInList) &&
-                  selectedWrongList.length !==
-                    allSongsArray[levelNum].length - 1
-                ) {
-                  checkAnswer(songInList);
-                }
-              }}>
-              {songInList.artist}
-            </li>
-          )
-        )}
+        {allSongsArray[levelNum].map((songInList: musicElemType, index: number) => (
+          <li
+            key={index}
+            className={`artists_list_item ${selectedWrongList.includes(songInList) && 'answer-wrong'} ${
+              selectedWrongList.length === allSongsArray[levelNum].length - 1 && !selectedWrongList.includes(songInList) && 'answer-right'
+            }`}
+            onClick={() => {
+              if (!selectedWrongList.includes(songInList) && selectedWrongList.length !== allSongsArray[levelNum].length - 1) {
+                checkAnswer(songInList);
+              }
+            }}>
+            {songInList.artist}
+          </li>
+        ))}
       </ul>
     </div>
   );
