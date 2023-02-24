@@ -28,7 +28,7 @@ const Artists: React.FC<ModalProps> = ({
   const [wrongSound] = useSound(`${process.env.PUBLIC_URL}/assets/sounds/wrongAnswerSound.mp3`);
 
   const checkAnswer = (answer: musicElemType) => {
-    if (!selectedWrongList.includes(answer) && selectedWrongList.length !== allSongsArray[levelNum].length - 1) {
+    if (!selectedWrongList.includes(answer) && !endLevel) {
       setClickedSong(answer);
     }
 
@@ -40,12 +40,9 @@ const Artists: React.FC<ModalProps> = ({
   };
 
   const answerWrong = (answer: musicElemType) => {
-    wrongSound();
     let list = [...selectedWrongList];
-    list.push(answer);
+    !selectedWrongList.includes(answer) && list.push(answer) && wrongSound();
     setSelectedWrongList(list);
-    if (selectedWrongList.length === 3) {
-    }
   };
 
   const answerRight = (answer: musicElemType) => {
@@ -71,7 +68,7 @@ const Artists: React.FC<ModalProps> = ({
             key={index}
             className={`artists_list_item ${appoinClass(songInList)}`}
             onClick={() => {
-              checkAnswer(songInList);
+              !endLevel && checkAnswer(songInList);
             }}>
             {songInList.artist}
           </li>
