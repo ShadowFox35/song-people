@@ -13,6 +13,7 @@ interface ModalProps {
   setDisableStart: Function;
   score: number;
   setScore: Function;
+  endLevel: boolean;
 }
 
 const Artists: React.FC<ModalProps> = ({
@@ -24,12 +25,15 @@ const Artists: React.FC<ModalProps> = ({
   setDisableStart,
   score,
   setScore,
+  endLevel,
 }) => {
   const [rightSound] = useSound(`${process.env.PUBLIC_URL}/assets/sounds/rightAnswerSound.mp3`);
   const [wrongSound] = useSound(`${process.env.PUBLIC_URL}/assets/sounds/wrongAnswerSound.mp3`);
 
   const checkAnswer = (answer: musicElemType) => {
-    setClickedSong(answer);
+    if (!selectedWrongList.includes(answer) && selectedWrongList.length !== allSongsArray[levelNum].length - 1) {
+      setClickedSong(answer);
+    }
 
     if (answer.artist === song?.artist) {
       answerRight(answer);
@@ -56,19 +60,23 @@ const Artists: React.FC<ModalProps> = ({
     setScore(score + 5 - selectedWrongList.length);
   };
 
+  const appoinClass = (songInList: musicElemType) => {
+    if (selectedWrongList.includes(songInList)) {
+      return 'answer-wrong';
+    } else if (endLevel && !selectedWrongList.includes(songInList)) {
+      return 'answer-right';
+    }
+  };
+
   return (
     <div className="artists">
       <ul className="artists_list">
         {allSongsArray[levelNum].map((songInList: musicElemType, index: number) => (
           <li
             key={index}
-            className={`artists_list_item ${selectedWrongList.includes(songInList) && 'answer-wrong'} ${
-              selectedWrongList.length === allSongsArray[levelNum].length - 1 && !selectedWrongList.includes(songInList) && 'answer-right'
-            }`}
+            className={`artists_list_item ${appoinClass(songInList)}`}
             onClick={() => {
-              if (!selectedWrongList.includes(songInList) && selectedWrongList.length !== allSongsArray[levelNum].length - 1) {
-                checkAnswer(songInList);
-              }
+              checkAnswer(songInList);
             }}>
             {songInList.artist}
           </li>

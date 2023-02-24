@@ -1,19 +1,16 @@
 import React from 'react';
-import { allSongsArray } from '../../../../constants/musicArray';
 import { musicElemType } from '../../../../types/Objects';
 import './Info.scss';
 
 interface InfoProps {
   song: musicElemType | null;
   clickedSong: musicElemType | null;
-  selectedWrongList: musicElemType[];
-
-  levelNum: number;
+  endLevel: boolean;
 }
 
-const Info: React.FC<InfoProps> = ({ song, clickedSong, selectedWrongList, levelNum }) => {
+const Info: React.FC<InfoProps> = ({ song, clickedSong,  endLevel }) => {
   const appointImg = () => {
-    if ((clickedSong && song && clickedSong === song) || selectedWrongList.length === allSongsArray[levelNum].length - 1) {
+    if (endLevel) {
       return song?.img;
     } else if (clickedSong) {
       return clickedSong?.img;
@@ -23,7 +20,13 @@ const Info: React.FC<InfoProps> = ({ song, clickedSong, selectedWrongList, level
   };
 
   const appoinText = () => {
-    return clickedSong ? clickedSong.info : 'Please listen to the song and choose the right artist';
+    if (endLevel) {
+      return song?.info;
+    } else if (clickedSong) {
+      return clickedSong?.info;
+    } else {
+      return 'Please listen to the song and choose the right artist';
+    }
   };
 
   return (

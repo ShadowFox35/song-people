@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import { musicElemType } from '../../../types/Objects';
 import Artists from './Artists/Artists';
 import Info from './Info/Info';
-import { allSongsArray, startMessage } from '../../../constants/musicArray';
+import { allSongsArray } from '../../../constants/musicArray';
 import './Game.scss';
 
 interface GameProps {
@@ -23,7 +23,7 @@ const Game: React.FC<GameProps> = ({ levelNum, setLevelNum, score, setScore }) =
   const nextLevel = () => {
     appointLevel();
     setDisableStart(true);
-    setClickedSong(startMessage);
+    setClickedSong(null);
   };
 
   const appointLevel = () => {
@@ -40,16 +40,16 @@ const Game: React.FC<GameProps> = ({ levelNum, setLevelNum, score, setScore }) =
     appointRandomSong();
   }, [levelNum]);
 
+  const endLevel = useMemo(() => selectedWrongList.length === allSongsArray[levelNum].length - 1, [song, selectedWrongList]);
+
+  const appoinClass = () => {
+    return endLevel ? song?.img : 'startImg.jpg';
+  };
+
   return (
     <div className="game">
       <div className="player">
-        <img
-          className="player_img"
-          src={`${process.env.PUBLIC_URL}/assets/song_images/${
-            clickedSong === song || selectedWrongList.length === allSongsArray[levelNum].length - 1 ? song?.img : startMessage.img
-          }`}
-          alt=""
-        />
+        <img className="player_img" src={`${process.env.PUBLIC_URL}/assets/song_images/${appoinClass()}`} alt="artist" />
         <div className="player_wrapper">
           {song?.audio && (
             <AudioPlayer
@@ -75,8 +75,9 @@ const Game: React.FC<GameProps> = ({ levelNum, setLevelNum, score, setScore }) =
             setDisableStart={setDisableStart}
             score={score}
             setScore={setScore}
+            endLevel={endLevel}
           />
-          <Info clickedSong={clickedSong} song={song} selectedWrongList={selectedWrongList} levelNum={levelNum} />
+          <Info clickedSong={clickedSong} song={song} endLevel={endLevel} />
         </div>
       </div>
       <button
