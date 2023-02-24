@@ -31,15 +31,15 @@ const Game: React.FC<GameProps> = ({
   );
 
   const [clickedSong, setClickedSong] =
-    useState<musicElemType>(startMessage[0]);
+    useState<musicElemType>(startMessage);
 
-  const startGame = () => {
-    chooseLevel();
+  const nextLevel = () => {
+    appointLevel();
     setDisableStart(true);
-    setClickedSong(startMessage[0]);
+    setClickedSong(startMessage);
   };
 
-  const chooseLevel = () => {
+  const appointLevel = () => {
     setLevelNum(levelNum + 1);
     setSelectedWrongList([]);
   };
@@ -67,7 +67,7 @@ const Game: React.FC<GameProps> = ({
             selectedWrongList.length ===
               allSongsArray[levelNum].length - 1
               ? song.img
-              : startMessage[0].img
+              : startMessage.img
           }`}
           alt=""
         />
@@ -111,7 +111,7 @@ const Game: React.FC<GameProps> = ({
         }`}
         onClick={() => {
           if (!disableStart) {
-            startGame();
+            nextLevel();
           }
         }}>
         Next Level
