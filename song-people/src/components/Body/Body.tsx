@@ -12,7 +12,7 @@ interface BodyProps {
 const Body: React.FC<BodyProps> = ({ score, setScore }) => {
   const [levelNum, setLevelNum] = useState<number>(0);
   return (
-    <div className="body">
+    <main className="body">
       <div className="body_wrapper">
         <Levels levelNum={levelNum} />
         {levelNum === allSongsArray.length ? (
@@ -21,7 +21,7 @@ const Body: React.FC<BodyProps> = ({ score, setScore }) => {
           <Game levelNum={levelNum} setLevelNum={setLevelNum} score={score} setScore={setScore} />
         )}
       </div>
-    </div>
+    </main>
   );
 };
 

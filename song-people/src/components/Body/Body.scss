@@ -1,7 +1,7 @@
 .body {
-  min-height: calc(100vh - 106px);
+  height: calc(100vh - 106px);
+
   &_wrapper {
-    padding: 0 90px;
     display: flex;
     flex-direction: column;
     align-items: center;

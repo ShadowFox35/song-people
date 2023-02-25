@@ -9,10 +9,8 @@ function App() {
 
   return (
     <>
-      <div className="container">
-        <Header score={score} />
-        <Body score={score} setScore={setScore} />
-      </div>
+      <Header score={score} />
+      <Body score={score} setScore={setScore} />
       <Footer />
     </>
   );

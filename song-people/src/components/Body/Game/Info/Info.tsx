@@ -30,10 +30,10 @@ const Info: React.FC<InfoProps> = ({ song, clickedSong, endLevel }) => {
   };
 
   return (
-    <div className="info">
+    <section className="info">
       <img className="info_img" src={`${process.env.PUBLIC_URL}/assets/song_images/${appointImg()}`} alt="artist" />
       <article className="info_text">{appoinText()}</article>
-    </div>
+    </section>
   );
 };
 

@@ -1,33 +1,27 @@
 .header {
   padding: 0;
-  width: 100%;
+  width: 100vw;
   height: 60px;
   background-color: #018abe;
   color: #001b48;
-  .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 1280px;
-    margin: auto;
-    padding: 0 40px;
-    height: 100%;
-    @media only screen and (max-width: 1280px) {
-      width: 100%;
-    }
-    .title {
-      font-family: 'Spectral SC';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 30px;
-      line-height: 22px;
-    }
-    .score {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 22px;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  padding: 0 60px;
+
+  .title {
+    font-family: 'Spectral SC';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 22px;
+  }
+  .score {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
   }
 }

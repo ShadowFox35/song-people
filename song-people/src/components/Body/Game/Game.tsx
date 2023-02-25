@@ -34,7 +34,7 @@ const Game: React.FC<GameProps> = ({ levelNum, setLevelNum, score, setScore }) =
   return (
     <div className="game">
       <Player song={song} endLevel={endLevel} />
-      <div className="options">
+      <section className="options">
         <div className="options_wrapper">
           {' '}
           <Artists
@@ -49,7 +49,7 @@ const Game: React.FC<GameProps> = ({ levelNum, setLevelNum, score, setScore }) =
           />
           <Info clickedSong={clickedSong} song={song} endLevel={endLevel} />
         </div>
-      </div>
+      </section>
       <ButtonNext
         levelNum={levelNum}
         endLevel={endLevel}

@@ -61,7 +61,7 @@ const Artists: React.FC<ModalProps> = ({
   };
 
   return (
-    <div className="artists">
+    <section className="artists">
       <ul className="artists_list">
         {allSongsArray[levelNum].map((songInList: musicElemType, index: number) => (
           <li
@@ -74,7 +74,7 @@ const Artists: React.FC<ModalProps> = ({
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

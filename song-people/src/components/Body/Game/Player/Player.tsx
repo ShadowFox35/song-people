@@ -22,7 +22,7 @@ const Player: React.FC<PlayerProps> = ({ song, endLevel }) => {
             src={`${process.env.PUBLIC_URL}/assets/music/${song?.audio}`}
             customAdditionalControls={[]}
             showJumpControls={false}
-            autoPlayAfterSrcChange={false}
+            autoPlayAfterSrcChange={false} 
             volume={0.5}
           />
         )}
