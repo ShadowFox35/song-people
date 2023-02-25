@@ -8,11 +8,7 @@ interface ModalProps {
   setLevelNum: Function;
 }
 
-const Modal: React.FC<ModalProps> = ({
-  setLevelNum,
-  score,
-  setScore,
-}) => {
+const Modal: React.FC<ModalProps> = ({ setLevelNum, score, setScore }) => {
   const newGame = () => {
     setScore(0);
     setLevelNum(0);
@@ -20,16 +16,9 @@ const Modal: React.FC<ModalProps> = ({
 
   return (
     <div className="modal">
-      <div className="modal_message">Congrats</div>
-      <div className="modal_score">
-        You passed the quiz and scored {score} out of 30
-        possible points
-      </div>{' '}
-      <button
-        className="btn-new"
-        onClick={() => {
-          newGame();
-        }}>
+      <h2 className="modal_message">Congrats</h2>
+      <p className="modal_score">You passed the quiz and scored {score} out of 30 possible points</p>{' '}
+      <button className="btn-new" onClick={newGame}>
         Start new game{' '}
       </button>
     </div>

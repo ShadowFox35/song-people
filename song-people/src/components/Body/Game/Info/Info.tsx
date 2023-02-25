@@ -32,7 +32,7 @@ const Info: React.FC<InfoProps> = ({ song, clickedSong, endLevel }) => {
   return (
     <div className="info">
       <img className="info_img" src={`${process.env.PUBLIC_URL}/assets/song_images/${appointImg()}`} alt="artist" />
-      <p className="info_text">{appoinText()}</p>
+      <article className="info_text">{appoinText()}</article>
     </div>
   );
 };

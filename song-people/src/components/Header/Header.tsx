@@ -9,8 +9,8 @@ const Header: React.FC<HeaderProps> = ({ score }) => {
   return (
     <div className="header">
       <div className="wrapper">
-        <p className="title">SongPeople</p>
-        <div className="score">score: {score}</div>
+        <h1 className="title">SongPeople</h1>
+        <p className="score">score: {score}</p>
       </div>
     </div>
   );
