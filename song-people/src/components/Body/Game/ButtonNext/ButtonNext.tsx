@@ -1,4 +1,5 @@
 import React from 'react';
+import { clsx } from 'clsx';
 import './ButtonNext.scss';
 
 interface BtnNextProps {
@@ -22,7 +23,7 @@ const ButtonNext: React.FC<BtnNextProps> = ({ levelNum, endLevel, setLevelNum, s
 
   return (
     <button
-      className={`button-next ${!endLevel && 'disabled'}`}
+      className={clsx('button-next', { disabled: !endLevel })}
       onClick={() => {
         if (endLevel) {
           nextLevel();

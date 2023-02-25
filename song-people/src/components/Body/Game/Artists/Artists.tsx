@@ -58,6 +58,7 @@ const Artists: React.FC<ModalProps> = ({
     } else if (endLevel && !selectedWrongList.includes(songInList)) {
       return 'answer-right';
     }
+    return '';
   };
 
   return (
