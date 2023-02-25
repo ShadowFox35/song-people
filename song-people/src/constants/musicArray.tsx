@@ -1,13 +1,6 @@
 import { musicElemType } from '../types/Objects';
 
-export const genresArray: string[] = [
-  'Pop',
-  'Rock',
-  'Metal',
-  'Rap',
-  'Electro',
-  'Classic',
-];
+export const genresArray: string[] = ['Pop', 'Rock', 'Metal', 'Rap', 'Electro', 'Classic'];
 
 export const allSongsArray: musicElemType[][] = [
   [

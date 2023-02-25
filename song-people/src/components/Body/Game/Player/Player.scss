@@ -1,3 +1,27 @@
+.player {
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 240px;
+  width: 100%;
+  &_img {
+    margin-right: 30px;
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+  }
+  &_wrapper {
+    width: 700px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 18px;
+    padding: 10px;
+  }
+}
+
 .rhap_container {
   box-sizing: border-box;
   display: flex;
