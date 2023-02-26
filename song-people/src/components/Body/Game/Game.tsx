@@ -29,7 +29,7 @@ const Game: React.FC<GameProps> = ({ levelNum, setLevelNum, score, setScore }) =
     appointRandomSong();
   }, [levelNum]);
 
-  const endLevel = useMemo(() => selectedWrongList.length === allSongsArray[levelNum].length - 1, [song, selectedWrongList]);
+  const endLevel = useMemo(() => selectedWrongList.length === allSongsArray[levelNum].length - 1, [song, selectedWrongList, levelNum]);
 
   return (
     <div className="game">

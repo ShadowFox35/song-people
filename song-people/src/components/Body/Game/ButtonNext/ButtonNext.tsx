@@ -11,13 +11,9 @@ interface BtnNextProps {
 }
 
 const ButtonNext: React.FC<BtnNextProps> = ({ levelNum, endLevel, setLevelNum, setSelectedWrongList, setClickedSong }) => {
-  const appointLevel = () => {
+  const nextLevel = () => {
     setLevelNum(levelNum + 1);
     setSelectedWrongList([]);
-  };
-
-  const nextLevel = () => {
-    appointLevel();
     setClickedSong(null);
   };
 
