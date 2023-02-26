@@ -9,30 +9,6 @@
   align-items: center;
   justify-content: center;
 
-  .player {
-    padding: 20px;
-    border-radius: 20px;
-    border: 2px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 240px;
-    width: 100%;
-    &_img {
-      margin-right: 30px;
-      width: 150px;
-      height: 150px;
-      border-radius: 20px;
-    }
-    &_wrapper {
-      width: 700px;
-      font-family: 'Montserrat';
-      font-weight: 400;
-      font-size: 18px;
-      padding: 10px;
-    }
-  }
-
   .options {
     width: 100%;
     &_wrapper {
@@ -41,27 +17,5 @@
       align-items: center;
       justify-content: space-between;
     }
-  }
-}
-
-.button-next {
-  background-color: #1cb8f6;
-  border-radius: 20px;
-  padding: 0 10px;
-  height: 50px;
-  font-family: 'Montserrat';
-  font-weight: 600;
-  font-size: 20px;
-  margin-bottom: 20px;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.disabled {
-  background-color: #d4d7d9;
-  color: #505455a9;
-  &:hover {
-    cursor: unset;
   }
 }
