@@ -1,3 +1,5 @@
+@import '../../../../App.scss';
+
 .player {
   padding: 20px;
   border-radius: 20px;
@@ -7,11 +9,28 @@
   justify-content: center;
   height: 240px;
   width: 100%;
+  @include desktop-mini() {
+    height: 220px;
+  }
+  @include mobile() {
+    padding: 10px;
+    height: auto;
+  }
+
   &_img {
     margin-right: 30px;
     width: 150px;
     height: 150px;
     border-radius: 20px;
+    @include desktop-mini() {
+      width: 14vw;
+      height: 14vw;
+      margin-right: 0px;
+    }
+    @include mobile() {
+      margin-right: 5px;
+      border-radius: 10px;
+    }
   }
   &_wrapper {
     width: 700px;
@@ -19,6 +38,14 @@
     font-weight: 400;
     font-size: 18px;
     padding: 10px;
+  }
+  @include mobile() {
+    width: 400px;
+    flex-wrap: wrap;
+  }
+  @include mobile-mini() {
+    width: calc(100vw - 150px);
+    flex-wrap: wrap;
   }
 }
 
@@ -76,6 +103,18 @@
   display: flex;
   flex: 3 1 auto;
   align-items: center;
+  @include desktop-mini() {
+    width: 600px;
+  }
+  @include tablet() {
+    width: 550px;
+  }
+  @include tablet-mini() {
+    width: 350px;
+  }
+  @include mobile-mini() {
+    width: calc(100vw - 180px);
+  }
 }
 .rhap_progress-container {
   display: flex;
@@ -98,7 +137,7 @@
   font-size: 11px;
   user-select: none;
   -webkit-user-select: none;
-  color: white;
+  color: black;
 }
 .rhap_progress-bar {
   box-sizing: border-box;
@@ -137,6 +176,12 @@
   background: #868686;
   border-radius: 50px;
   box-shadow: rgba(134, 134, 134, 0.5) 0 0 5px;
+
+  @include mobile() {
+    width: 15px;
+    height: 15px;
+    top: -6px;
+  }
 }
 .rhap_controls-section {
   display: flex;
@@ -173,6 +218,16 @@
   font-size: 40px;
   width: 40px;
   height: 40px;
+  @include tablet() {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+  }
+  @include mobile() {
+    font-size: 25px;
+    width: 25px;
+    height: 25px;
+  }
 }
 .rhap_volume-controls {
   display: flex;
@@ -187,6 +242,11 @@
   height: 26px;
   color: #868686;
   margin-right: 6px;
+  @include mobile() {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
 }
 .rhap_volume-container {
   display: flex;

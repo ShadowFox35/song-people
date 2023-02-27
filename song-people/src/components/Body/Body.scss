@@ -1,5 +1,10 @@
+@import '../../App.scss';
+
 .body {
-  height: calc(100vh - 106px);
+  padding-bottom: 40px;
+  @include desktop-mini() {
+    padding-bottom: 20px 0;
+  }
 
   &_wrapper {
     display: flex;

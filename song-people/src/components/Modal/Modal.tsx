@@ -1,17 +1,15 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { levelNumRedicer, scoreRedicer } from '../../redux/action/gameOptions';
 import './Modal.scss';
 
-interface ModalProps {
-  score: number;
-  setScore: Function;
-  levelNum: number;
-  setLevelNum: Function;
-}
+const Modal: React.FC = () => {
+  const dispatch = useDispatch();
+  const score = useSelector((state: any) => state.gameOptionsRedicer.score);
 
-const Modal: React.FC<ModalProps> = ({ setLevelNum, score, setScore }) => {
   const newGame = () => {
-    setScore(0);
-    setLevelNum(0);
+    dispatch(scoreRedicer(0));
+    dispatch(levelNumRedicer(0));
   };
 
   return (

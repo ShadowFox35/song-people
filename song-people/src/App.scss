@@ -1,24 +1,52 @@
 @font-face {
   font-family: Spectral SC;
   src: url('./assets/fonts/Spectral_SC/SpectralSC-Regular.ttf');
-  }
+}
 
 @font-face {
-    font-family: Montserrat;
-    src: url('./assets/fonts/Montserrat/Montserrat-Regular.ttf');
+  font-family: Montserrat;
+  src: url('./assets/fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+@mixin desktop-mini {
+  @media screen and (max-width: 1419.5px) {
+    @content;
   }
+}
 
-   *{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-   }
+@mixin tablet {
+  @media screen and (max-width: 1050.5px) {
+    @content;
+  }
+}
 
-   body{
-    overflow: hidden;
-   }
+@mixin tablet-mini {
+  @media screen and (max-width: 860.5px) {
+    @content;
+  }
+}
 
-   
+@mixin mobile {
+  @media screen and (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin mobile-mini {
+  @media screen and (max-width: 520px) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
 
 .App {
   text-align: center;
