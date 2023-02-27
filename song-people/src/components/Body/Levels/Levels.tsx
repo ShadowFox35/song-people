@@ -2,12 +2,11 @@ import React from 'react';
 import { clsx } from 'clsx';
 import { genresArray } from '../../../constants/musicArray';
 import './Levels.scss';
+import { useSelector } from 'react-redux';
 
-interface LevelsProps {
-  levelNum: number;
-}
+const Levels: React.FC = () => {
+  const levelNum = useSelector((state: any) => state.gameOptionsRedicer.levelNum);
 
-const Levels: React.FC<LevelsProps> = ({ levelNum }) => {
   return (
     <ul className="genres-list">
       {genresArray.map((genre: string, index: number) => (

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-
+import { useSelector } from 'react-redux';
 import { musicElemType } from '../../../types/Objects';
 import Artists from './Artists/Artists';
 import Info from './Info/Info';
@@ -8,14 +8,9 @@ import './Game.scss';
 import Player from './Player/Player';
 import ButtonNext from './ButtonNext/ButtonNext';
 
-interface GameProps {
-  levelNum: number;
-  setLevelNum: Function;
-  score: number;
-  setScore: Function;
-}
+const Game: React.FC = () => {
+  const levelNum = useSelector((state: any) => state.gameOptionsRedicer.levelNum);
 
-const Game: React.FC<GameProps> = ({ levelNum, setLevelNum, score, setScore }) => {
   const [selectedWrongList, setSelectedWrongList] = useState<musicElemType[]>([]);
   const [song, setSong] = useState<musicElemType | null>(null);
   const [clickedSong, setClickedSong] = useState<musicElemType | null>(null);
@@ -39,24 +34,15 @@ const Game: React.FC<GameProps> = ({ levelNum, setLevelNum, score, setScore }) =
           {' '}
           <Artists
             song={song}
-            levelNum={levelNum}
             selectedWrongList={selectedWrongList}
             setSelectedWrongList={setSelectedWrongList}
             setClickedSong={setClickedSong}
-            score={score}
-            setScore={setScore}
             endLevel={endLevel}
           />
           <Info clickedSong={clickedSong} song={song} endLevel={endLevel} />
         </div>
       </section>
-      <ButtonNext
-        levelNum={levelNum}
-        endLevel={endLevel}
-        setLevelNum={setLevelNum}
-        setSelectedWrongList={setSelectedWrongList}
-        setClickedSong={setClickedSong}
-      />
+      <ButtonNext endLevel={endLevel} setSelectedWrongList={setSelectedWrongList} setClickedSong={setClickedSong} />
     </div>
   );
 };

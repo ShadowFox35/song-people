@@ -1,11 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import './Header.scss';
 
-interface HeaderProps {
-  score: number;
-}
+const Header: React.FC = () => {
+  const score = useSelector((state: any) => state.gameOptionsRedicer.score);
 
-const Header: React.FC<HeaderProps> = ({ score }) => {
   return (
     <header className="header">
       <h1 className="title">SongPeople</h1>
