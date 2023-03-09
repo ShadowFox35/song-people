@@ -1,0 +1,88 @@
+@font-face {
+  font-family: Spectral SC;
+  src: url('./assets/fonts/Spectral_SC/SpectralSC-Regular.ttf');
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url('./assets/fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+@mixin desktop-mini {
+  @media screen and (max-width: 1419.5px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 1050.5px) {
+    @content;
+  }
+}
+
+@mixin tablet-mini {
+  @media screen and (max-width: 860.5px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 760px) {
+    @content;
+  }
+}
+
+@mixin mobile-mini {
+  @media screen and (max-width: 520px) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

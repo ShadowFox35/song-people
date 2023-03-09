@@ -1,0 +1,15 @@
+@import '../../App.scss';
+
+.body {
+  padding-bottom: 40px;
+  @include desktop-mini() {
+    padding-bottom: 20px 0;
+  }
+
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,58 @@
+@import '../../../../App.scss';
+
+.info {
+  padding: 15px;
+  width: 580px;
+  height: 300px;
+  border-radius: 20px;
+  border: 2px solid black;
+  @include desktop-mini() {
+    height: 290px;
+  }
+  @include tablet-mini() {
+    width: 400px;
+    height: auto;
+  }
+  @include mobile() {
+    width: calc(100vw - 280px);
+  }
+  @include mobile-mini() {
+    padding: 10px;
+    width: 200px;
+  }
+
+  &_img {
+    float: left;
+    margin: 0 7px 7px 0px;
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    @include desktop-mini() {
+      width: 10vw;
+      height: 10vw;
+    }
+    @include mobile-mini() {
+      margin: 0 5px 5px 0px;
+      border-radius: 10px;
+    }
+  }
+  &_text {
+    margin: 0;
+    text-align: justify;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 20px;
+    @include desktop-mini() {
+      font-size: 18px;
+    }
+    @include tablet-mini() {
+      font-size: 14.5px;
+    }
+    @include mobile() {
+      font-size: 13px;
+    }
+    @include mobile-mini() {
+      font-size: 12px;
+    }
+  }
+}

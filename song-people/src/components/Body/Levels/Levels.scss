@@ -1,0 +1,49 @@
+@import '../../../App.scss';
+
+.genres-list {
+  border-radius: 20px;
+  border: 2px solid black;
+  padding: 10px 0;
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+  @include desktop-mini() {
+    width: 970px;
+  }
+  @include tablet() {
+    width: 800px;
+  }
+  @include tablet-mini() {
+    width: calc(100vw - 100px);
+  }
+  @include mobile() {
+    padding: 10px 5px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+    gap: 15px;
+  }
+
+  &_item {
+    list-style-type: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+    color: black;
+    @include mobile() {
+      font-size: 14px;
+      line-height: 16px;
+    }
+    @include mobile-mini() {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+  .active {
+    color: #1cb8f6;
+  }
+}

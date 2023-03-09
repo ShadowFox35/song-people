@@ -1,0 +1,52 @@
+@import '../../App.scss';
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.818);
+  color: aliceblue;
+  padding: 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include mobile() {
+    padding: 5px 20px;
+    flex-wrap: wrap;
+  }
+}
+
+.rights {
+  font-family: 'Spectral SC';
+  font-size: 30px;
+  @include desktop-mini() {
+    font-size: 28px;
+  }
+  @include mobile() {
+    font-size: 20px;
+  }
+}
+
+.contacts {
+  font-family: 'Montserrat';
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  &_link {
+    color: aliceblue;
+    text-decoration: none;
+    transition: 0.5s;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      transition: 0.2s;
+    }
+  }
+  @include desktop-mini() {
+    font-size: 18px;
+  }
+  @include mobile() {
+    font-size: 12px;
+  }
+}

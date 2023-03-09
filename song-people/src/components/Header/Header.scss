@@ -1,0 +1,47 @@
+@import '../../App.scss';
+
+.header {
+  padding: 0;
+  width: 100vw;
+  height: 60px;
+  background-color: #018abe;
+  color: #001b48;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  padding: 0 60px;
+  @include desktop-mini() {
+    height: 40px;
+  }
+  @include mobile() {
+    padding: 0 20px;
+  }
+
+  .title {
+    font-family: 'Spectral SC';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 22px;
+    @include desktop-mini() {
+      font-size: 28px;
+    }
+    @include mobile() {
+      font-size: 26px;
+    }
+  }
+  .score {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+    @include desktop-mini() {
+      font-size: 18px;
+    }
+    @include mobile() {
+      font-size: 16px;
+    }
+  }
+}
