@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import useSound from 'use-sound';
 import { allSongsArray } from '../../../../constants/musicArray';
 import { scoreRedicer } from '../../../../redux/action/gameOptions';
+import { RootState } from '../../../../redux/store';
 import { musicElemType } from '../../../../types/Objects';
 import './Artists.scss';
 
@@ -15,8 +16,8 @@ interface ModalProps {
 
 const Artists: React.FC<ModalProps> = ({ song, selectedWrongList, setSelectedWrongList, setClickedSong, endLevel }) => {
   const dispatch = useDispatch();
-  const levelNum = useSelector((state: any) => state.gameOptionsRedicer.levelNum);
-  const score = useSelector((state: any) => state.gameOptionsRedicer.score);
+  const levelNum = useSelector((state: RootState) => state.gameOptionsRedicer.levelNum);
+  const score = useSelector((state: RootState) => state.gameOptionsRedicer.score);
 
   const [rightSound] = useSound(`${process.env.PUBLIC_URL}/assets/sounds/rightAnswerSound.mp3`);
   const [wrongSound] = useSound(`${process.env.PUBLIC_URL}/assets/sounds/wrongAnswerSound.mp3`);

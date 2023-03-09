@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 import './Header.scss';
 
 const Header: React.FC = () => {
-  const score = useSelector((state: any) => state.gameOptionsRedicer.score);
+  const score = useSelector((state: RootState) => state.gameOptionsRedicer.score);
 
   return (
     <header className="header">

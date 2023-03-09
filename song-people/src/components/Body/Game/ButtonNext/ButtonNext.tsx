@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 import './ButtonNext.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { levelNumRedicer } from '../../../../redux/action/gameOptions';
+import { RootState } from '../../../../redux/store';
 
 interface BtnNextProps {
   endLevel: boolean;
@@ -12,10 +13,9 @@ interface BtnNextProps {
 
 const ButtonNext: React.FC<BtnNextProps> = ({ endLevel, setSelectedWrongList, setClickedSong }) => {
   const dispatch = useDispatch();
-  const levelNum = useSelector((state: any) => state.gameOptionsRedicer.levelNum);
+  const levelNum = useSelector((state: RootState) => state.gameOptionsRedicer.levelNum);
 
   const nextLevel = () => {
-    // setLevelNum(levelNum + 1);
     dispatch(levelNumRedicer(levelNum + 1));
     setSelectedWrongList([]);
     setClickedSong(null);

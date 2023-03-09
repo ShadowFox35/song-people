@@ -5,9 +5,10 @@ import Levels from './Levels/Levels';
 import Game from './Game/Game';
 import Modal from '../Modal/Modal';
 import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 
 const Body: React.FC = () => {
-  const levelNum = useSelector((state: any) => state.gameOptionsRedicer.levelNum);
+  const levelNum = useSelector((state: RootState) => state.gameOptionsRedicer.levelNum);
 
   return (
     <main className="body">
