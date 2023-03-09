@@ -7,9 +7,10 @@ import { allSongsArray } from '../../../constants/musicArray';
 import './Game.scss';
 import Player from './Player/Player';
 import ButtonNext from './ButtonNext/ButtonNext';
+import { RootState } from '../../../redux/store';
 
 const Game: React.FC = () => {
-  const levelNum = useSelector((state: any) => state.gameOptionsRedicer.levelNum);
+  const levelNum = useSelector((state: RootState) => state.gameOptionsRedicer.levelNum);
 
   const [selectedWrongList, setSelectedWrongList] = useState<musicElemType[]>([]);
   const [song, setSong] = useState<musicElemType | null>(null);

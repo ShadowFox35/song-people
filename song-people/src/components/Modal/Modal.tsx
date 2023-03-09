@@ -1,11 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { levelNumRedicer, scoreRedicer } from '../../redux/action/gameOptions';
+import { RootState } from '../../redux/store';
 import './Modal.scss';
 
 const Modal: React.FC = () => {
   const dispatch = useDispatch();
-  const score = useSelector((state: any) => state.gameOptionsRedicer.score);
+  const score = useSelector((state: RootState) => state.gameOptionsRedicer.score);
 
   const newGame = () => {
     dispatch(scoreRedicer(0));
